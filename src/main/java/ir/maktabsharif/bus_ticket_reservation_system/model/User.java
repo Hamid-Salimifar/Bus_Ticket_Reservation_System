@@ -1,10 +1,9 @@
 package ir.maktabsharif.bus_ticket_reservation_system.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.Set;
 
 
 @NoArgsConstructor
@@ -13,6 +12,7 @@ import lombok.*;
 @Getter
 @Builder
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -22,6 +22,15 @@ public class User {
     private String username;
     private String Email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Gender gender;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Ticket> tickets;
 
 
 
