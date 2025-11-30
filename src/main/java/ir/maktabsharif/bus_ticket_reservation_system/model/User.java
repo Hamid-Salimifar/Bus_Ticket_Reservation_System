@@ -1,9 +1,6 @@
 package ir.maktabsharif.bus_ticket_reservation_system.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
 
 
@@ -22,6 +19,9 @@ public class User {
     private String username;
     private String Email;
     private String password;
+
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
 
 
