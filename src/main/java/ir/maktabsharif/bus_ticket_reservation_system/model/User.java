@@ -3,6 +3,8 @@ package ir.maktabsharif.bus_ticket_reservation_system.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -10,6 +12,7 @@ import lombok.*;
 @Getter
 @Builder
 @Entity
+@Table(name = "users")
 public class User {
 
     @Id
@@ -22,6 +25,9 @@ public class User {
 
     @Enumerated(EnumType.STRING)
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private Set<Ticket> tickets;
 
 
 

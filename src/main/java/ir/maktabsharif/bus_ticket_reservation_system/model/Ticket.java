@@ -19,4 +19,12 @@ public class Ticket {
     @Enumerated(EnumType.STRING)
     private TicketStatus ticketStatus;
 
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    @ManyToOne
+    @JoinColumn(name = "trip_id")
+    private Trip trip;
+
 }

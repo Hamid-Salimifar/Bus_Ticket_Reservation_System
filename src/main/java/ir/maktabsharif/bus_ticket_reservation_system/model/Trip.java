@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Set;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +31,9 @@ public class Trip {
 
     private LocalDate departureDate;
     private LocalTime departureTime;
+
+    @OneToMany(mappedBy = "trip")
+    private Set<Ticket> tickets;
 
 
 }
