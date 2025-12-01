@@ -3,7 +3,7 @@ spring:
     name: Bus_Ticket_Reservation_System
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/transportation_application
+    url: jdbc:postgresql://localhost:5432/bus_Ticket_Reservation_System
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
