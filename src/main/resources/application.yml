@@ -3,14 +3,14 @@ spring:
     name: Bus_Ticket_Reservation_System
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/bus_Ticket_Reservation_System
+    url: jdbc:postgresql://localhost:5432/bus_ticket_reservation_system
     username: postgres
     password: 1234
     driver-class-name: org.postgresql.Driver
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:

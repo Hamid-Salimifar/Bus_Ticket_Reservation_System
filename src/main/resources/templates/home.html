@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<!--<p sec:authorize="isAuthenticated()">-->
+<!--    Roles: <span th:text="${#authentication.authorities}"></span>-->
+<!--</p>-->
+
+    <h1>Welcome</h1>
+    <h2 sec:authorize="hasRole('ADMIN')">
+        <a th:href="@{/admin/add-trip}">Add Trip</a>
+    </h2>
+<form th:action="@{/search}" method="get">
+    <input name="departure" placeholder="departure">
+    <input name="destination" placeholder="destination">
+    <input type="date" name="date" placeholder="date">
+    <button type="submit">Search</button>
+</form>
+
+    <div th:if="${trips != null}">
+
+        <div th:if="${#lists.isEmpty(trips)}">
+            <p>No Trips Found.</p>
+        </div>
+
+        <div th:if="${!#lists.isEmpty(trips)}">
+
+            <table border="1" style="margin-bottom: 20px;">
+                <tr>
+                    <td>
+                        <b>route:</b>
+                        <span th:text="${trips[0].departureLocation}"></span>
+                        -
+                        <span th:text="${trips[0].destinationLocation}"></span>
+                    </td>
+
+                    <td>
+                        <b>date:</b>
+                        <span th:text="${trips[0].departureDate}"></span>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="1">
+                <tr>
+                    <th>trip_id</th>
+                    <th>time</th>
+                    <th>choose</th>
+                </tr>
+
+                <tr th:each="t : ${trips}">
+                    <td th:text="${t.id}"></td>
+                    <td th:text="${t.departureTime}"></td>
+                    <td>
+                        <a th:href="@{'/buy/' + ${t.id}}">Buy</a>
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+
+    </div>
+<a th:href="@{/ticketsOfUser}">See All Your Tickets</a>
+
+</body>
+</html>

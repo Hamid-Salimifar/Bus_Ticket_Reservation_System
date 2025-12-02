@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ticket Details</title>
+</head>
+<body>
+<h1>Ticket Details</h1>
+<div th:if="${ticketDto != null}">
+    <table>
+        <tr>
+            <th>Ticket ID</th>
+            <td th:text="${ticketDto.ticketId}"></td>
+        </tr>
+        <tr>
+            <th>User Name</th>
+            <td th:text="${ticketDto.userName}"></td>
+        </tr>
+        <tr>
+            <th>Gender</th>
+            <td th:text="${ticketDto.gender}"></td>
+        </tr>
+        <tr>
+            <th>Departure</th>
+            <td th:text="${ticketDto.departure}"></td>
+        </tr>
+        <tr>
+            <th>Destination</th>
+            <td th:text="${ticketDto.destination}"></td>
+        </tr>
+        <tr>
+            <th>Departure Date</th>
+            <td th:text="${ticketDto.departureDate}"></td>
+        </tr>
+        <tr>
+            <th>Departure Time</th>
+            <td th:text="${ticketDto.departureTime}"></td>
+        </tr>
+        <tr>
+            <th>Trip ID</th>
+            <td th:text="${ticketDto.tripId}"></td>
+        </tr>
+    </table>
+
+    <form th:action="@{'/returnTicket/' + ${ticketDto.ticketId}}" method="post">
+        <button type="submit">Return Ticket</button>
+    </form>
+</div>
+
+<div th:if="${ticketDto == null}">
+    <p>No ticket details found.</p>
+</div>
+
+<a th:href="@{/ticketsOfUser}">Back to My Tickets</a>
+
+</div>
+</body>
+</html>
