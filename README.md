@@ -5,30 +5,30 @@ Admins can create trips, and users can search, buy, and return tickets.
 
 ##Features
 
-✅ User registration and login
+-✅ User registration and login
 
-✅ Search trips by departure, destination, and date
+-✅ Search trips by departure, destination, and date
 
-✅ Buy tickets
+-✅ Buy tickets
 
-✅ Return tickets (release them back as available)
+-✅ Return tickets (release them back as available)
 
-✅ Admin panel for creating trips
+-✅ Admin panel for creating trips
 
-✅ View purchased tickets and ticket details
+-✅ View purchased tickets and ticket details
 
 ##Tech Stack
 
-Java
+-Java
 
-Spring Boot MVC
+-Spring Boot MVC
 
-Spring Security
+-Spring Security
 
-Thymeleaf
+-Thymeleaf
 
-PostgreSQL
+-PostgreSQL
 
-Hibernate / JPA
+-Hibernate / JPA
 
-HTML / CSS
+-HTML / CSS
