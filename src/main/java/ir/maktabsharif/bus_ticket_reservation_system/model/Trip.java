@@ -6,6 +6,7 @@ import lombok.*;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -32,8 +33,10 @@ public class Trip {
     private LocalDate departureDate;
     private LocalTime departureTime;
 
+    private Integer numberOfTickets;
+
     @OneToMany(mappedBy = "trip")
-    private Set<Ticket> tickets;
+    private Set<Ticket> tickets=new HashSet<>();
 
 
 }
