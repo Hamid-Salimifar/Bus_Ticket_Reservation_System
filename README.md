@@ -1,34 +1,28 @@
-#🚌 Bus Ticket Reservation System
+🚌 Bus Ticket Reservation System
+A modern, full-featured Java web application for booking bus tickets. Built with Spring Boot MVC, Thymeleaf, and PostgreSQL.
+Admins can create and manage trips, while users can search, book, and return tickets with ease.
 
-A Java web application for bus ticket booking built with Spring Boot MVC, Thymeleaf, and PostgreSQL.
-Admins can create trips, and users can search, buy, and return tickets.
+✨ Features
+Feature	Description
+👤 User Authentication	Secure registration and login using Spring Security.
+🔍 Trip Search	Search trips by departure, destination, and date.
+🎫 Buy Tickets	Select and purchase available seats.
+↩️ Return Tickets	Release tickets back to available inventory.
+🛠️ Admin Panel	Create and manage bus trips (admin-only).
+📋 Ticket History	View purchased tickets and detailed receipts.
+🛠️ Tech Stack
+Java 17+
 
-##Features
+Spring Boot MVC
 
--✅ User registration and login
+Spring Security
 
--✅ Search trips by departure, destination, and date
+Thymeleaf (Templating Engine)
 
--✅ Buy tickets
+PostgreSQL (Database)
 
--✅ Return tickets (release them back as available)
+Hibernate / JPA (ORM)
 
--✅ Admin panel for creating trips
+HTML / CSS / Bootstrap (Frontend)
 
--✅ View purchased tickets and ticket details
-
-##Tech Stack
-
--Java
-
--Spring Boot MVC
-
--Spring Security
-
--Thymeleaf
-
--PostgreSQL
-
--Hibernate / JPA
-
--HTML / CSS
+Maven (Dependency Management)
