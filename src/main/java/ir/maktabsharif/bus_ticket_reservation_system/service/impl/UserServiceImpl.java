@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl extends BaseServiceImpl<User> implements UserService {
 
@@ -28,7 +30,13 @@ public class UserServiceImpl extends BaseServiceImpl<User> implements UserServic
                 .email(user.getEmail())
                 .password(passwordEncoder.encode(user.getPassword()))
                 .role(Role.USER)
+                .gender(user.getGender())
                 .build();
         userRepository.save(finalUser);
+    }
+
+    @Override
+    public Optional<User> findByUsername(String username) {
+        return userRepository.findByUsername(username);
     }
 }
