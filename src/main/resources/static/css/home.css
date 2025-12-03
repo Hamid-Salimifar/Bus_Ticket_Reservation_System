@@ -1,0 +1,119 @@
+/* src/main/resources/static/css/styles.css */
+
+/* Page layout */
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: #f7f9fb;
+    color: #222;
+    margin: 0;
+    padding: 24px;
+}
+
+/* Center container */
+.container {
+    max-width: 960px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 28px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(35,50,80,0.06);
+}
+
+/* Headings */
+h1 {
+    margin: 0 0 8px 0;
+    font-size: 28px;
+    letter-spacing: -0.5px;
+}
+
+h2 {
+    margin: 10px 0 18px 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+/* Simple form styling */
+form {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="email"],
+select {
+    padding: 8px 10px;
+    border: 1px solid #d9e0e7;
+    border-radius: 6px;
+    min-width: 160px;
+    outline: none;
+    transition: box-shadow .12s, border-color .12s;
+}
+
+input:focus, select:focus {
+    border-color: #4c9aff;
+    box-shadow: 0 0 0 4px rgba(76,154,255,0.08);
+}
+
+/* Buttons */
+button, .btn {
+    background: #2563eb;
+    color: #fff;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: transform .06s, box-shadow .06s;
+}
+
+button:hover, .btn:hover { transform: translateY(-1px); }
+button:active, .btn:active { transform: translateY(0); }
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 18px;
+}
+
+table th, table td {
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 1px solid #eef2f6;
+}
+
+table th {
+    background: #f2f6fb;
+    font-weight: 700;
+}
+
+.route-row td {
+    background: #ffffff;
+    border: 1px solid #e6eef6;
+    padding: 12px;
+    font-weight: 600;
+}
+
+/* Links */
+a {
+    color: #0645ad;
+    text-decoration: none;
+}
+a:hover { text-decoration: underline; }
+
+/* Small helpers */
+.small {
+    font-size: 13px;
+    color: #6b7280;
+}
+
+/* Responsive */
+@media (max-width: 720px) {
+    form { flex-direction: column; align-items: stretch; }
+    input { width: 100%; }
+    .container { padding: 16px; }
+}

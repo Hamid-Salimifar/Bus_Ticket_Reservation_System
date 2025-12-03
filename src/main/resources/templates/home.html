@@ -1,34 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Home</title>
+    <link rel="stylesheet" th:href="@{/css/home.css}" href="/css/home.css"/>
 </head>
 <body>
-<!--<p sec:authorize="isAuthenticated()">-->
-<!--    Roles: <span th:text="${#authentication.authorities}"></span>-->
-<!--</p>-->
+<div class="container">
 
     <h1>Welcome</h1>
+
     <h2 sec:authorize="hasRole('ADMIN')">
-        <a th:href="@{/admin/add-trip}">Add Trip</a>
+        <a th:href="@{/admin/add-trip}" class="btn">Add Trip</a>
     </h2>
-<form th:action="@{/search}" method="get">
-    <input name="departure" placeholder="departure">
-    <input name="destination" placeholder="destination">
-    <input type="date" name="date" placeholder="date">
-    <button type="submit">Search</button>
-</form>
+
+    <form th:action="@{/search}" method="get">
+        <input name="departure" placeholder="departure">
+        <input name="destination" placeholder="destination">
+        <input type="date" name="date" placeholder="date">
+        <button type="submit">Search</button>
+    </form>
 
     <div th:if="${trips != null}">
 
         <div th:if="${#lists.isEmpty(trips)}">
-            <p>No Trips Found.</p>
+            <p class="small">No Trips Found.</p>
         </div>
 
         <div th:if="${!#lists.isEmpty(trips)}">
 
-            <table border="1" style="margin-bottom: 20px;">
+            <table class="route-row" style="margin-bottom: 12px;">
                 <tr>
                     <td>
                         <b>route:</b>
@@ -44,7 +45,7 @@
                 </tr>
             </table>
 
-            <table border="1">
+            <table>
                 <tr>
                     <th>trip_id</th>
                     <th>time</th>
@@ -55,7 +56,7 @@
                     <td th:text="${t.id}"></td>
                     <td th:text="${t.departureTime}"></td>
                     <td>
-                        <a th:href="@{'/buy/' + ${t.id}}">Buy</a>
+                        <a th:href="@{'/buy/' + ${t.id}}" class="btn">Buy</a>
                     </td>
                 </tr>
             </table>
@@ -63,7 +64,9 @@
         </div>
 
     </div>
-<a th:href="@{/ticketsOfUser}">See All Your Tickets</a>
 
+    <a th:href="@{/ticketsOfUser}">See All Your Tickets</a>
+
+</div>
 </body>
 </html>
