@@ -2,32 +2,35 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>My Tickets</title>
+
+    <!-- Load CSS -->
+    <link rel="stylesheet" th:href="@{/css/user_tickets.css}" href="/css/user_tickets.css">
 </head>
 <body>
+
 <h1>My Tickets</h1>
 
-<div th:if="${#lists.isEmpty(tickets)}">
-    <p>you have no tickets yet</p>
+<div class="empty" th:if="${#lists.isEmpty(tickets)}">
+    <p>You have no tickets yet</p>
 </div>
-<div th:if="${!#lists.isEmpty(tickets)}">
-    <h2>list of all your tickets</h2>
-    <table border="1">
+
+<div class="container" th:if="${!#lists.isEmpty(tickets)}">
+    <h2>List of All Your Tickets</h2>
+
+    <table>
         <tr>
-            <th>ticket_id</th>
-            <th>date</th>
-            <th>choose</th>
+            <th>Ticket ID</th>
+            <th>Date</th>
+            <th>Choose</th>
         </tr>
 
         <tr th:each="t : ${tickets}">
             <td th:text="${t.id}"></td>
-            <td th:text="${t.getTrip().getDepartureDate()}"></td>
-            <td>
-                <a th:href="@{'/showDetails/' + ${t.id}}">choose</a>
-            </td>
+            <td th:text="${t.trip.departureDate}"></td>
+            <td><a th:href="@{'/showDetails/' + ${t.id}}">View</a></td>
         </tr>
     </table>
-
 </div>
 
 </body>
