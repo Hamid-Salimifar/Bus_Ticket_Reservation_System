@@ -2,24 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Buy Ticket</title>
+
+    <!-- Load CSS -->
+    <link rel="stylesheet" th:href="@{/css/buy_ticket.css}" href="/css/buy_ticket.css">
 </head>
 <body>
 
-    <form th:action="@{/buy}" method="post">
-        <input type="hidden" th:value="${tripId}" name="tripId">
-<!--        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>-->
-        <input name="firstName" placeholder="firstName">
-        <input name="lastName" placeholder="lastName">
-        <select name="gender">
-            <option value="MALE">MALE</option>
-            <option value="FEMALE">FEMALE</option>
-        </select>
+<h2>Buy Ticket</h2>
 
-        <button type="submit">Buy Ticket</button>
-    </form>
-    <div th:if="${successMessage}">
-        <p style="color:green;" th:text="${successMessage}"></p>
-    </div>
+<form th:action="@{/buy}" method="post">
+    <input type="hidden" th:value="${tripId}" name="tripId">
+
+    <input name="firstName" placeholder="First Name" required>
+    <input name="lastName" placeholder="Last Name" required>
+
+    <select name="gender" required>
+        <option value="MALE">MALE</option>
+        <option value="FEMALE">FEMALE</option>
+    </select>
+
+    <button type="submit">Buy Ticket</button>
+</form>
+
+<div th:if="${successMessage}">
+    <p class="success" th:text="${successMessage}"></p>
+</div>
+
 </body>
 </html>
