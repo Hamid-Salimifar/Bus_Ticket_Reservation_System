@@ -2,40 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Add Trip</title>
+
+    <!-- Load CSS from static/css/add-trip.css -->
+    <link rel="stylesheet" th:href="@{/css/add-trip.css}" href="/css/add-trip.css">
 </head>
 <body>
+
 <h2>Add New Trip</h2>
 
-
 <div th:if="${param.success}">
-    <p style="color:green;">Trip added successfully!</p>
+    <p class="success">Trip added successfully!</p>
 </div>
 
 <form th:action="@{/admin/add-trip}" th:object="${trip}" method="post">
 
-    <input type="text" th:field="*{departureLocation}" placeholder="Departure Location" required><br/>
+    <input type="text" th:field="*{departureLocation}" placeholder="Departure Location" required>
 
-    <input type="text" th:field="*{destinationLocation}" placeholder="Destination Location" required><br/>
+    <input type="text" th:field="*{destinationLocation}" placeholder="Destination Location" required>
 
     <select th:field="*{busType}" required>
         <option th:value="MiniBus">MiniBus</option>
         <option th:value="Standard">Standard</option>
         <option th:value="VIP">VIP</option>
         <option th:value="Sleeper">Sleeper</option>
-    </select><br/>
+    </select>
 
-    <input type="text" th:field="*{busDriver}" placeholder="Bus Driver" required><br/>
+    <input type="text" th:field="*{busDriver}" placeholder="Bus Driver" required>
 
-    <input type="date" th:field="*{departureDate}" required><br/>
+    <input type="date" th:field="*{departureDate}" required>
 
-    <input type="time" th:field="*{departureTime}" required><br/>
+    <input type="time" th:field="*{departureTime}" required>
 
-    <input type="number" th:field="*{numberOfTickets}" placeholder="Number of Tickets" min="1" required><br/>
+    <input type="number" th:field="*{numberOfTickets}" placeholder="Number of Tickets" min="1" required>
 
     <button type="submit">Add Trip</button>
 </form>
-
 
 </body>
 </html>
