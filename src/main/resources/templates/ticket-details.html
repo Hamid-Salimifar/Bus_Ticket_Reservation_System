@@ -3,10 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Ticket Details</title>
+
+    <!-- Load CSS -->
+    <link rel="stylesheet" th:href="@{/css/ticket-details.css}" href="/css/ticket-details.css">
 </head>
 <body>
+
 <h1>Ticket Details</h1>
-<div th:if="${ticketDto != null}">
+
+<div class="container" th:if="${ticketDto != null}">
+
     <table>
         <tr>
             <th>Ticket ID</th>
@@ -45,14 +51,14 @@
     <form th:action="@{'/returnTicket/' + ${ticketDto.ticketId}}" method="post">
         <button type="submit">Return Ticket</button>
     </form>
+
 </div>
 
-<div th:if="${ticketDto == null}">
+<div class="not-found" th:if="${ticketDto == null}">
     <p>No ticket details found.</p>
 </div>
 
-<a th:href="@{/ticketsOfUser}">Back to My Tickets</a>
+<a class="back" th:href="@{/ticketsOfUser}">Back to My Tickets</a>
 
-</div>
 </body>
 </html>
